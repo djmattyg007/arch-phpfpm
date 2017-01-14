@@ -5,6 +5,7 @@ set -e
 
 echo "Installing PHP packages..."
 pacman -S --noconfirm --noprogressbar --color=never php php-fpm php-apcu php-intl
+pacman -Qi systemd || true
 
 # Configure PHP
 sed -i -r 's/^;? ?expose_php =.*$/expose_php = Off/' /etc/php/php.ini
