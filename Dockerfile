@@ -1,7 +1,7 @@
-FROM djmattyg007/arch-runit-base:2017.01.14-5
+FROM djmattyg007/arch-runit-base:2017.01.14-7
 MAINTAINER djmattyg007
 
-ENV PHPFPMIMAGE_VERSION=2017.01.14-4
+ENV PHPFPMIMAGE_VERSION=2017.01.14-5
 
 # Add install bash script
 COPY setup/root/*.sh /root/
