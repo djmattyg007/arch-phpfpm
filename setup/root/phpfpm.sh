@@ -4,7 +4,7 @@
 set -e
 
 echo "Installing PHP packages..."
-pacman -S --noconfirm php php-fpm php-apcu php-intl
+pacman -S --noconfirm --noprogressbar --color=never php php-fpm php-apcu php-intl
 
 # Configure PHP
 sed -i -r 's/^;? ?expose_php =.*$/expose_php = Off/' /etc/php/php.ini
@@ -13,6 +13,8 @@ sed -i -r 's/^;? ?max_execution_time =.*$/max_execution_time = 120/' /etc/php/ph
 sed -i -r 's/^;? ?max_input_vars =.*$/max_input_vars = 10000/' /etc/php/php.ini
 sed -i -r 's/^;? ?display_errors =.*$/display_errors = Off/' /etc/php/php.ini
 sed -i -r 's/^;? ?upload_max_filesize =.*$/upload_max_filesize = 8M/' /etc/php/php.ini
+sed -i -r 's/^;? ?opcache.enable=.*$/opcache.enable=1/' /etc/php/php.ini
+sed -i -r 's/^;? ?opcache.enable_cli=.*$/opcache.enable_cli=1/' /etc/php/php.ini
 cat > /etc/php/conf.d/50-conf.ini <<EOF
 extension=bcmath.so
 extension=bz2.so
