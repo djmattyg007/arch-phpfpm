@@ -12,6 +12,7 @@ Latest stable php-fpm release, using the following Arch Linux packages:
 
   - php
   - php-fpm
+  - php-apcu
   - php-intl
 
 **Usage**
