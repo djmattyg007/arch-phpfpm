@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [[ -n "${TZ}" ]]; then
-    sed -i -r "s/^;? ?date\.timezone =.*$/date.timezone = ${TZ}/" /etc/php/php.ini
+    sed -i -r "s#^;? ?date\.timezone =.*\$#date.timezone = ${TZ}#" /etc/php/php.ini
 else
-    sed -i -r 's/^;? ?date\.timezone =.*$/date.timezone = UTC/' /etc/php/php.ini
+    sed -i -r 's#^;? ?date\.timezone =.*\$#date.timezone = UTC#' /etc/php/php.ini
     export TZ=UTC
 fi
 
