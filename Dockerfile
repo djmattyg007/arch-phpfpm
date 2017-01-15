@@ -7,7 +7,7 @@ ENV PHPFPMIMAGE_VERSION=2017.01.15-4
 COPY setup/root/*.sh /root/
 COPY setup/init.sh /etc/service/php-fpm/run
 
-# Run bash script to install teamspeak server
+# Run bash script to install php-fpm
 RUN /root/install.sh && \
     rm /root/*.sh
 
