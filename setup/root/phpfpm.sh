@@ -21,14 +21,14 @@ extension=bz2.so
 extension=exif.so
 extension=iconv.so
 extension=intl.so
+zend_extension=opcache.so
 EOF
 
 # Configure php-fpm
-sed -i -r 's/^;?error_log =.*$/error_log = \/dev\/stderr/' /etc/php/php-fpm.conf
+sed -i -r 's/^;?error_log =.*$/error_log = syslog/' /etc/php/php-fpm.conf
 sed -i -r 's/^;?daemonize =.*$/daemonize = no/' /etc/php/php-fpm.conf
 sed -i -r 's/^;?systemd_interval =.*$/systemd_interval = 0/' /etc/php/php-fpm.conf
 sed -i -r 's/^;?listen =.*$/listen = 9000/' /etc/php/php-fpm.d/www.conf
 sed -i -r 's/^;?pm\.status_path =.*$/pm.status_path = \/status/' /etc/php/php-fpm.d/www.conf
 sed -i -r 's/^;?ping\.path =.*$/ping.path = \/ping/' /etc/php/php-fpm.d/www.conf
-sed -i -r 's/^;?access\.log =.*$/access.log = \/dev\/stdout/' /etc/php/php-fpm.d/www.conf
 sed -i -r 's/^;?chdir =.*$/chdir = \/srv\/http/' /etc/php/php-fpm.d/www.conf
