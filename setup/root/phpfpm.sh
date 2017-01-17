@@ -3,10 +3,10 @@
 # Exit script if return code != 0
 set -e
 
-echo "Installing PHP packages..."
+echo "Install PHP packages..."
 pacman -S --noconfirm --noprogressbar --color=never php php-fpm php-apcu php-intl
 
-# Configure PHP
+echo "Configure PHP"
 sed -i -r 's/^;? ?expose_php =.*$/expose_php = Off/' /etc/php/php.ini
 sed -i -r 's/^;? ?log_errors_max_len =.*$/log_errors_max_len = 4096/' /etc/php/php.ini
 sed -i -r 's/^;? ?max_execution_time =.*$/max_execution_time = 120/' /etc/php/php.ini
@@ -24,7 +24,7 @@ extension=intl.so
 zend_extension=opcache.so
 EOF
 
-# Configure php-fpm
+echo "Configure php-fpm"
 sed -i -r 's/^;?error_log =.*$/error_log = syslog/' /etc/php/php-fpm.conf
 sed -i -r 's/^;?daemonize =.*$/daemonize = no/' /etc/php/php-fpm.conf
 sed -i -r 's/^;?systemd_interval =.*$/systemd_interval = 0/' /etc/php/php-fpm.conf

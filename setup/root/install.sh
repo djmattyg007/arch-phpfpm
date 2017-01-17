@@ -5,7 +5,7 @@ set -e
 
 source /root/functions.sh
 
-echo "Installing fake systemd package"
+echo "Install fake systemd package"
 aur_start
 aur_build systemd-dummy
 aur_finish
