@@ -16,8 +16,9 @@ Latest stable php-fpm release, using the following Arch Linux packages:
   - php-intl
 
 **Usage**
+
 ```
-docker run -d \
+docker run \
     --net="host" \
     --rm=true \
     --name=<container name> \
@@ -35,8 +36,9 @@ Specifying the TZ environment variable is optional. UTC will be used if it is no
 Connect to php-fpm using its TCP socket on `<host ip>:9000`
 
 **Example**
+
 ```
-docker run -d \
+docker run \
     --net="host" \
     --rm=true \
     --name=php-fpm \
